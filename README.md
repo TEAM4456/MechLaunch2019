@@ -1,8 +1,8 @@
-#MechLaunch2019
+# MechLaunch2019
 2019 Mech Cadets robot code
 
-##Setup
-* ###Windows
+## Setup
+* ### Windows
 	* make sure you have git set up (TODO: improve)
 	* clone the repository into your directory of choice
 		* to use SSH, run `git clone git@github.com:TEAM4456/MechLaunch2019.git`
@@ -17,7 +17,7 @@
 			* when IntelliJ IDEA asks to import Gradle project, select yes
 		* for VS Code
 			* --TODO--
-* ###Linux
+* ### Linux
 	* make sure you have git set up (TODO: improve)
 	* clone the repository into your directory of choice
 		* to use SSH, run `git clone git@github.com:TEAM4456/MechLaunch2019.git`
@@ -37,8 +37,8 @@
 			* just don't commit your editor-specific files
 				* add them to the .gitignore if you need to
 
-##Style Conventions
-* ###Indentation
+## Style Conventions
+* ### Indentation
 	* tab characters are used for block indentation
 		```
 		if (true) {
@@ -56,7 +56,7 @@
 		```
 		* if you encounter issues with this, please notify the Programming Chief
 	* these conventions ensure that indentation is consistent and configurable, and that text is always aligned
-* ###Naming
+* ### Naming
 	* variables use lowerCamelCase
 	* objects use UpperCamelCase
 	* constants use UPPER_SNAKE_CASE
@@ -68,7 +68,7 @@
 		```
 	* methods (functions) use lowerCamelCase
 	* parameters use lowerCamelCase
-* ###Inlining
+* ### Inlining
 	* there are no formal rules on when to inline code, so best judgement should be used
-* ###Enforcement
+* ### Enforcement
 	* the Programming Chief may modify code as they see fit in order to conform to the style conventions
