@@ -1,10 +1,23 @@
 package frc.team4456.robot;
 
+import frc.team4456.robot.subsystems.*;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 public class Robot extends TimedRobot {
+	public static Climb climb;
+	public static Drive drive;
+	public static Elevator elevator;
+	public static Grabber grabber;
+	
     @Override
-    public void robotInit() { }
+    public void robotInit() {
+    	Controls oi = new Controls();
+		RobotMap.init();
+		climb = new Climb();
+		drive = new Drive();
+		elevator = new Elevator();
+		grabber = new Grabber();
+	}
     
     @Override
     public void disabledInit() { }
