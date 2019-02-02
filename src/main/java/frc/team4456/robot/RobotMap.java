@@ -40,6 +40,7 @@ public class RobotMap{
 		
 		leftSlave.set(ControlMode.Follower, 1);
 		rightSlave.set(ControlMode.Follower, 3);
+		rightCrawl.set(ControlMode.Follower, 7);
 		
 		leftMain.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
 		rightMain.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
