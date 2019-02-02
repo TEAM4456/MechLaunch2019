@@ -2,48 +2,55 @@ package frc.team4456.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.can.*;
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.SerialPort;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
-public class RobotMap{
-	public static WPI_TalonSRX leftMain;
-	public static WPI_TalonSRX rightMain;
-	public static WPI_VictorSPX leftSlave;
-	public static WPI_VictorSPX rightSlave;
+public class RobotMap {
+	
+	public static WPI_TalonSRX leftDriveMaster;
+	public static WPI_TalonSRX rightDriveMaster;
+	public static WPI_VictorSPX leftDriveFollower;
+	public static WPI_VictorSPX rightDriveFollower;
 	public static WPI_TalonSRX liftTalon;
 	public static WPI_TalonSRX climbTalon;
-	public static WPI_TalonSRX leftCrawl;
-	public static WPI_TalonSRX rightCrawl;
-	public static DoubleSolenoid leftGrab;
-	public static DoubleSolenoid rightGrab;
-	public static DoubleSolenoid leftPivot;
-	public static DoubleSolenoid rightPivot;
-	public static Compressor compressor;
+	public static WPI_TalonSRX crawlMasterTalon;
+	public static WPI_TalonSRX crawlFollowerTalon;
+	public static DoubleSolenoid leftGripperPiston;
+	public static DoubleSolenoid rightGripperPiston;
+	public static DoubleSolenoid gripperPivotPiston;
 	
-	public static void init(){
-		leftMain = new WPI_TalonSRX(1);
-		leftSlave = new WPI_VictorSPX(2);
-		rightMain = new WPI_TalonSRX(3);
-		rightSlave = new WPI_VictorSPX(4);
+	public static Compressor compressor; // TODO: MOVE TO DEDICATED PNEUMATICS CONTROLLER CLASS
+	
+	public static void init() {
+		
+		leftDriveMaster = new WPI_TalonSRX(1);
+		leftDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		
+		leftDriveFollower = new WPI_VictorSPX(2);
+		leftDriveFollower.set(ControlMode.Follower, 1);
+		
+		rightDriveMaster = new WPI_TalonSRX(3);
+		rightDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		rightDriveFollower = new WPI_VictorSPX(4);
+		rightDriveFollower.set(ControlMode.Follower, 3);
+		
 		liftTalon = new WPI_TalonSRX(5);
+		
 		climbTalon = new WPI_TalonSRX(6);
-		leftCrawl = new WPI_TalonSRX(7);
-		rightCrawl = new WPI_TalonSRX(8);
-		leftGrab = new DoubleSolenoid(0, 1);
-		rightGrab = new DoubleSolenoid(2, 3);
-		leftPivot = new DoubleSolenoid(4, 5);
-		rightPivot = new DoubleSolenoid(6, 7);
-		compressor = new Compressor();
 		
-		leftSlave.set(ControlMode.Follower, 1);
-		rightSlave.set(ControlMode.Follower, 3);
-		rightCrawl.set(ControlMode.Follower, 7);
+		crawlMasterTalon = new WPI_TalonSRX(7);
+		crawlFollowerTalon = new WPI_TalonSRX(8);
+		crawlFollowerTalon.set(ControlMode.Follower, 7);
 		
-		leftMain.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		rightMain.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		liftTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
+		leftGripperPiston = new DoubleSolenoid(0, 1);
+		rightGripperPiston = new DoubleSolenoid(2, 3);
+		
+		gripperPivotPiston = new DoubleSolenoid(4, 5);
+		
+		compressor = new Compressor(); // TODO: MOVE TO DEDICATED PNEUMATICS CONTROLLER CLASS
+		
 	}
+	
 }
