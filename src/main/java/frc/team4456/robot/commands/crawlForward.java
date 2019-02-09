@@ -3,24 +3,29 @@ package frc.team4456.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.team4456.robot.Robot;
 
-public class toggleTracking extends Command {
+public class crawlForward extends Command {
 	
-	public toggleTracking() {
-		requires(Robot.drive);
+	public crawlForward() {
+		requires(Robot.crawl);
 	}
 	
+	@Override
 	protected void initialize() {
-		Robot.drive.toggleTracking();
+		Robot.crawl.crawlForward();
 	}
 	
+	@Override
 	protected boolean isFinished() {
-		return true;
+		return false;
 	}
 	
-	protected void end() { }
+	@Override
+	protected void end() {
+		Robot.crawl.stopCrawl();
+	}
 	
+	@Override
 	protected void interrupted() {
 		end();
 	}
-	
 }

@@ -2,9 +2,7 @@ package frc.team4456.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.team4456.robot.commands.extendLeg;
-import frc.team4456.robot.commands.retractLeg;
-import frc.team4456.robot.commands.toggleTracking;
+import frc.team4456.robot.commands.*;
 
 public class Controls {
 	
@@ -18,10 +16,10 @@ public class Controls {
 		
 		//xbox controller buttons
 		JoystickButton aButton = new JoystickButton(joystick, 1);
-		//aButton.whileHeld(/*Toggle Grabber*/);
+		aButton.whileHeld(new raiseElevatorManual());
 		
 		JoystickButton bButton = new JoystickButton(joystick, 2);
-		bButton.whenPressed(new toggleTracking());
+		bButton.whileHeld(new lowerElevatorManual());
 		
 		JoystickButton xButton = new JoystickButton(joystick, 3);
 		xButton.whileHeld(new extendLeg());
@@ -29,8 +27,23 @@ public class Controls {
 		JoystickButton yButton = new JoystickButton(joystick, 4);
 		yButton.whileHeld(new retractLeg());
 		
+		JoystickButton leftBumper = new JoystickButton(joystick, 5);
+		leftBumper.whileHeld(new crawlBack());
+		
+		JoystickButton rightBumper = new JoystickButton(joystick, 6);
+		rightBumper.whileHeld(new crawlForward());
+		
 		JoystickButton backButton = new JoystickButton(joystick, 7);
-		//backButton.whileHeld(/*Toggle Wrist*/);
+		// -- control here --
+		
+		JoystickButton startButton = new JoystickButton(joystick, 8);
+		// -- control here --
+		
+		JoystickButton leftStick = new JoystickButton(joystick, 9);
+		// -- control here --
+		
+		JoystickButton rightStick = new JoystickButton(joystick, 10);
+		// -- control here --
 		
 		//button pad buttons
 		JoystickButton button1 = new JoystickButton(buttonPad, 1);

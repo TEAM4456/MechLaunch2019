@@ -1,33 +1,42 @@
 package frc.team4456.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.TimedRobot;
-import frc.team4456.robot.subsystems.Climb;
-import frc.team4456.robot.subsystems.Drive;
-import frc.team4456.robot.subsystems.Elevator;
-import frc.team4456.robot.subsystems.Grabber;
+import frc.team4456.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
 	
 	public static Climb climb;
+	public static Crawl crawl;
 	public static Drive drive;
 	public static Elevator elevator;
 	public static Grabber grabber;
-	public static Controls oi;
+	public static Controls controls;
+	
 	
 	@Override 
 	public void robotInit() {
 		
-		CameraServer.getInstance().startAutomaticCapture();
+		System.out.println("robotInit() called");
+		
+		//CameraServer.getInstance().startAutomaticCapture();
 		
 		RobotMap.init();
 		
-		oi = new Controls();
 		climb = new Climb();
 		drive = new Drive();
 		elevator = new Elevator();
 		grabber = new Grabber();
+		crawl = new Crawl();
 		
+		controls = new Controls();
+		
+	}
+	
+	@Override
+	public void robotPeriodic() {
+		System.out.println("elevator encoder:" + RobotMap.liftTalon.getSelectedSensorPosition(0));
 	}
 	
 	@Override 
@@ -50,15 +59,8 @@ public class Robot extends TimedRobot {
 	
 	@Override
 	public void teleopPeriodic() {
-		
-		//Finds out if the robot is currently using 
-		//vision tracking and runs the correct arcade drive.
-		if (drive.isTracking()) {
-			drive.trackingArcadeDrive(oi.joystick);
-		} else {
-			drive.arcadeDrive(oi.joystick);
-		}
-		
+		Scheduler.getInstance().run();
+		drive.betterArcadeDrive(controls.joystick);
 	}
 	
 	@Override 

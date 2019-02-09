@@ -16,4 +16,8 @@ public class Climb extends Subsystem {
 		RobotMap.climbTalon.set(ControlMode.PercentOutput, -.5);
 	}
 	
+	public void stopLeg() {
+		RobotMap.climbTalon.set(ControlMode.PercentOutput, 0);
+	}
+	
 }

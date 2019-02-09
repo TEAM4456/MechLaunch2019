@@ -11,8 +11,8 @@ public class RobotMap {
 	
 	public static WPI_TalonSRX leftDriveMaster;
 	public static WPI_TalonSRX rightDriveMaster;
-	public static WPI_VictorSPX leftDriveFollower;
-	public static WPI_VictorSPX rightDriveFollower;
+	public static WPI_TalonSRX leftDriveFollower;
+	public static WPI_TalonSRX rightDriveFollower;
 	public static WPI_TalonSRX liftTalon;
 	public static WPI_TalonSRX climbTalon;
 	public static WPI_TalonSRX crawlMasterTalon;
@@ -21,35 +21,33 @@ public class RobotMap {
 	public static DoubleSolenoid rightGripperPiston;
 	public static DoubleSolenoid gripperPivotPiston;
 	
-	public static Compressor compressor; // TODO: MOVE TO DEDICATED PNEUMATICS CONTROLLER CLASS
-	
 	public static void init() {
 		
-		leftDriveMaster = new WPI_TalonSRX(1);
+		leftDriveMaster = new WPI_TalonSRX(2);
+		leftDriveMaster.setInverted(false);
 		leftDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		leftDriveFollower = new WPI_TalonSRX(1);
+		leftDriveFollower.set(ControlMode.Follower, 2);
 		
-		leftDriveFollower = new WPI_VictorSPX(2);
-		leftDriveFollower.set(ControlMode.Follower, 1);
-		
-		rightDriveMaster = new WPI_TalonSRX(3);
+		rightDriveMaster = new WPI_TalonSRX(7);
+		rightDriveMaster.setInverted(true);
 		rightDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		rightDriveFollower = new WPI_VictorSPX(4);
-		rightDriveFollower.set(ControlMode.Follower, 3);
+		rightDriveFollower = new WPI_TalonSRX(8);
+		rightDriveFollower.set(ControlMode.Follower, 7);
 		
-		liftTalon = new WPI_TalonSRX(5);
+		liftTalon = new WPI_TalonSRX(4);
+		liftTalon.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 0);
 		
-		climbTalon = new WPI_TalonSRX(6);
+		climbTalon = new WPI_TalonSRX(5);
 		
-		crawlMasterTalon = new WPI_TalonSRX(7);
-		crawlFollowerTalon = new WPI_TalonSRX(8);
-		crawlFollowerTalon.set(ControlMode.Follower, 7);
+		crawlMasterTalon = new WPI_TalonSRX(3);
+		crawlFollowerTalon = new WPI_TalonSRX(6);
+		crawlFollowerTalon.set(ControlMode.Follower, 3);
 		
 		leftGripperPiston = new DoubleSolenoid(0, 1);
 		rightGripperPiston = new DoubleSolenoid(2, 3);
 		
 		gripperPivotPiston = new DoubleSolenoid(4, 5);
-		
-		compressor = new Compressor(); // TODO: MOVE TO DEDICATED PNEUMATICS CONTROLLER CLASS
 		
 	}
 	
