@@ -15,6 +15,7 @@ public class raiseElevatorManual extends Command {
 		Robot.elevator.raiseElevatorManual();
 	}
 	
+	
 	protected boolean isFinished() {
 		System.out.println("raiseElevatorManual isFinished() called");
 		return false;

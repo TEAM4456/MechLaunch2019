@@ -12,23 +12,21 @@ public class Globals {
 	public static double rightDriveD = 1.0;
 	public static double rightDriveF = 0.3439511004;
 	
-	public static double elevatorP = 0.4;
-	public static double elevatorI = 0.0;
+	public static double elevatorP = 2.5;
+	public static double elevatorI = 0.000499;
 	public static double elevatorD = 0.0;
 	public static double elevatorF = 0.0;
-	public static double elevatorRampRate = 0.3;
-	public static double elevatorManualStepSize = 50.0;
+	public static double elevatorRampRate = 0.0;
+	public static double elevatorManualStepSize = 300.0;
+	public static double elevatorLowerLimit = 0.0;
+	public static double elevatorUpperLimit = 9730.0;
+	
+	public static double[] elevatorPositions = {0, 3100, 6750, 9600};
 	
 	public static double climberP = 0.6;
 	public static double climberI = 0.0;
 	public static double climberD = 0.0;
 	public static double climberF = 0.0;
 	public static double climberRampRate = 0.2;
-	
-	public static int elevatorPositionIndex = 0;
-	public static boolean elevatorManualControl = false;
-	
-	public static double[] elevatorPositions = {};
-	
 	
 }

@@ -7,12 +7,12 @@ import frc.team4456.robot.commands.*;
 public class Controls {
 	
 	public static Joystick joystick;
-	public static Joystick buttonPad;
+	public static ButtonBoard buttonBoard;
 	
 	public Controls() {
 		
 		joystick = new Joystick(0);
-		buttonPad = new Joystick(1);
+		buttonBoard = new ButtonBoard(1);
 		
 		//xbox controller buttons
 		JoystickButton aButton = new JoystickButton(joystick, 1);
@@ -46,24 +46,25 @@ public class Controls {
 		// -- control here --
 		
 		//button pad buttons
-		JoystickButton button1 = new JoystickButton(buttonPad, 1);
-		//button1.whenPressed(/*Hatch Level 1*/);
+		/*
+		JoystickButton button1 = new JoystickButton(buttonBoard, 1);
+		button1.whenPressed(new setElevatorPosition(Globals.elevatorPositions[0]));
 		
-		JoystickButton button2 = new JoystickButton(buttonPad, 2);
-		//button2.whenPressed(/*Cargo Level 1*/);
+		JoystickButton button2 = new JoystickButton(buttonBoard, 2);
+		button2.whenPressed(new setElevatorPosition(Globals.elevatorPositions[1]));
 		
-		JoystickButton button3 = new JoystickButton(buttonPad, 3);
-		//button3.whenPressed(/*Hatch Level 2*/);
+		JoystickButton button3 = new JoystickButton(buttonBoard, 3);
+		button3.whenPressed(new setElevatorPosition(Globals.elevatorPositions[2]));
 		
-		JoystickButton button4 = new JoystickButton(buttonPad, 4);
-		//button4.whenPressed(/*Cargo Level 2*/);
+		JoystickButton button4 = new JoystickButton(buttonBoard, 4);
+		button4.whenPressed(new setElevatorPosition(Globals.elevatorPositions[3]));
 		
-		JoystickButton button5 = new JoystickButton(buttonPad, 5);
-		//button5.whenPressed(/*Hatch Level 3*/);
+		JoystickButton button5 = new JoystickButton(buttonBoard, 5);
+		//button5.whenPressed();
 		
-		JoystickButton button6 = new JoystickButton(buttonPad, 6);
-		//button6.whenPressed(/*Cargo Level 3*/);
-		
+		JoystickButton button6 = new JoystickButton(buttonBoard, 6);
+		//button6.whenPressed();
+		*/
 	}
 	
 }

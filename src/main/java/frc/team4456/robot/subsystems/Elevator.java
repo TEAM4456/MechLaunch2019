@@ -18,6 +18,7 @@ public class Elevator extends Subsystem {
 		liftTalon.config_kI(0, Globals.elevatorI, 10);
 		liftTalon.config_kD(0, Globals.elevatorD, 10);
 		liftTalon.config_kF(0, Globals.elevatorF, 10);
+		resetElevatorPosition();
 	}
 	
 	private int getPosition() {
@@ -29,13 +30,19 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void raiseElevatorManual() {
-		liftTalon.set(ControlMode.Position, getPosition() + Globals.elevatorManualStepSize);
+		//if (liftTalon.getClosedLoopTarget(0) < Globals.elevatorUpperLimit) {
+			liftTalon.set(ControlMode.Position, getPosition() + Globals.elevatorManualStepSize);
+		//}
 	}
 	
 	public void lowerElevatorManual() {
-		liftTalon.set(ControlMode.Position, getPosition() - Globals.elevatorManualStepSize);
+		//if (liftTalon.getClosedLoopTarget(0) < Globals.elevatorLowerLimit) {
+			liftTalon.set(ControlMode.Position, getPosition() - Globals.elevatorManualStepSize);
+		//}
 	}
 	
-	
+	public void moveToPosition(int position) {
+		liftTalon.set(ControlMode.Position, Globals.elevatorPositions[position]);
+	}
 	
 }
