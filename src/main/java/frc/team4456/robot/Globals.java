@@ -21,7 +21,7 @@ public class Globals {
 	public static double elevatorLowerLimit = 0.0;
 	public static double elevatorUpperLimit = 9730.0;
 	
-	public static double[] elevatorPositions = {0, 2200, 5100, 9600};
+	public static double[] elevatorPositions = {0, 2200, 5100, 7600};
 	
 	public static double climberP = 0.6;
 	public static double climberI = 0.0;
