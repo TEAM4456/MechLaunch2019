@@ -8,6 +8,7 @@ public class setElevatorPosition extends Command {
 	private double position;
 	
 	public setElevatorPosition(double pos) {
+		requires(Robot.elevator);
 		System.out.println("setElevatorPosition constructor called");
 		position = pos;
 	}

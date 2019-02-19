@@ -36,10 +36,12 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotPeriodic() {
 		System.out.println("elevator encoder: " + RobotMap.liftTalon.getSelectedSensorPosition(0));
+		/*
 		System.out.println("button 1: " + Controls.buttonBoard.getVertiButton1Held());
 		System.out.println("button 2: " + Controls.buttonBoard.getVertiButton2Held());
 		System.out.println("button 3: " + Controls.buttonBoard.getVertiButton3Held());
 		System.out.println("button 4: " + Controls.buttonBoard.getVertiButton4Held());
+		*/
 	}
 	
 	@Override 

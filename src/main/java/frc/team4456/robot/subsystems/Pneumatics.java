@@ -16,7 +16,8 @@ public class Pneumatics extends Subsystem {
 	private final DoubleSolenoid leftGripperPiston = RobotMap.leftGripperPiston;
 	private final DoubleSolenoid rightGripperPiston = RobotMap.rightGripperPiston;
 	private final DoubleSolenoid punchPiston = RobotMap.punchPiston;
-	private final DoubleSolenoid lockPiston = null; // TODO: add lock piston
+	private final DoubleSolenoid pivotPiston = RobotMap.gripperPivotPiston;
+	private final DoubleSolenoid lockPiston = RobotMap.lockPiston;
 	
 	/*
 	private GripperState gripperState;
@@ -36,7 +37,8 @@ public class Pneumatics extends Subsystem {
 	private void resetPistons() {
 		leftGripperPiston.set(Value.kReverse);
 		rightGripperPiston.set(Value.kReverse);
-		punchPiston.set(Value.kReverse);
+		punchPiston.set(Value.kForward);
+		//pivotPiston.set(Value.kReverse);
 		//lockPiston.set(Value.kReverse);
 	}
 	
@@ -47,8 +49,10 @@ public class Pneumatics extends Subsystem {
 	public void toggleGripper() {
 		if (leftGripperPiston.get() == Value.kReverse) {
 			leftGripperPiston.set(Value.kForward);
+			rightGripperPiston.set(Value.kForward);
 		} else {
 			leftGripperPiston.set(Value.kReverse);
+			rightGripperPiston.set(Value.kReverse);
 		}
 	}
 	
@@ -60,7 +64,14 @@ public class Pneumatics extends Subsystem {
 		}
 	}
 	
-	/*
+	public void togglePivot() {
+		if (pivotPiston.get() == Value.kReverse) {
+			pivotPiston.set(Value.kForward);
+		} else {
+			pivotPiston.set(Value.kReverse);
+		}
+	}
+	
 	public void toggleLock() {
 		if (lockPiston.get() == Value.kReverse) {
 			lockPiston.set(Value.kForward);
@@ -68,6 +79,5 @@ public class Pneumatics extends Subsystem {
 			lockPiston.set(Value.kReverse);
 		}
 	}
-	*/
 	
 }

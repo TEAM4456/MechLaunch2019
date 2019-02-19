@@ -34,16 +34,16 @@ public class Controls {
 		rightBumper.whileHeld(new crawlForward());
 		
 		JoystickButton backButton = new JoystickButton(joystick, 7);
-		// -- control here --
+		backButton.whenPressed(new togglePunch());
 		
 		JoystickButton startButton = new JoystickButton(joystick, 8);
-		// -- control here --
+		startButton.whenPressed(new toggleGripper());
 		
 		JoystickButton leftStick = new JoystickButton(joystick, 9);
-		// -- control here --
+		leftStick.whenPressed(new togglePivot());
 		
 		JoystickButton rightStick = new JoystickButton(joystick, 10);
-		// -- control here --
+		rightStick.whenPressed(new toggleLock());
 		
 		//button pad buttons
 		/*

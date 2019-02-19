@@ -9,11 +9,11 @@ public class Climb extends Subsystem {
 	protected void initDefaultCommand() { }
 	
 	public void extendLeg() {
-		RobotMap.climbTalon.set(ControlMode.PercentOutput, .5);
+		RobotMap.climbTalon.set(ControlMode.PercentOutput, .75);
 	}
 	
 	public void retractLeg() {
-		RobotMap.climbTalon.set(ControlMode.PercentOutput, -.5);
+		RobotMap.climbTalon.set(ControlMode.PercentOutput, -.75);
 	}
 	
 	public void stopLeg() {

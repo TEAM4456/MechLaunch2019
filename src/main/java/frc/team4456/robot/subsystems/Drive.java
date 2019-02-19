@@ -11,12 +11,13 @@ public class Drive extends Subsystem {
 	private final WPI_TalonSRX leftDriveTalon = RobotMap.leftDriveMaster;
 	private final WPI_TalonSRX rightDriveTalon = RobotMap.rightDriveMaster;
 	
-	protected void initDefaultCommand() {}
+	protected void initDefaultCommand() { }
 	
 	public void betterArcadeDrive(Joystick joystick) {
 		
 		double xValue = joystick.getRawAxis(0);
 		double yValue = joystick.getRawAxis(1);
+		double rtValue = joystick.getRawAxis(3);
 		
 		// deadzone
 		if (xValue > -0.2 && xValue < 0.2) {
@@ -26,9 +27,8 @@ public class Drive extends Subsystem {
 			yValue = 0;
 		}
 		
-		
-		double leftValue = -(yValue - (xValue / 2));
-		double rightValue = -(yValue + (xValue / 2));
+		double leftValue = -(yValue - (xValue / 2)) * (1.2 - rtValue);
+		double rightValue = -(yValue + (xValue / 2)) * (1.2 - rtValue);
 		
 		System.out.println("leftValue: " + leftValue);
 		System.out.println("rightValue: " + rightValue);
