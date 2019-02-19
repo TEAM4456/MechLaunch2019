@@ -37,28 +37,28 @@ public class ButtonBoard {
 	}
 	
 	public boolean getHorizButton1Held() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButton(5); // TODO: check for button on real button board
 	}
 	public boolean getHorizButton1Pressed() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(5); // TODO: check for button on real button board
 	}
 	public boolean getHorizButton2Held() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButton(6); // TODO: check for button on real button board
 	}
 	public boolean getHorizButton2Pressed() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(6); // TODO: check for button on real button board
 	}
 	public boolean getHorizButton3Held() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButton(7); // TODO: check for button on real button board
 	}
 	public boolean getHorizButton3Pressed() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(7); // TODO: check for button on real button board
 	}
 	public boolean getHorizButton4Held() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButton(8); // TODO: check for button on real button board
 	}
 	public boolean getHorizButton4Pressed() {
-		return false; // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(8); // TODO: check for button on real button board
 	}
 	
 	public boolean getVertiButton1Held() {

@@ -73,13 +73,21 @@ public class Robot extends TimedRobot {
 		} else if (Controls.buttonBoard.getLeftJoystickDown()) {
 			elevator.lowerElevatorManual();
 		} else if (Controls.buttonBoard.getVertiButton1Pressed()) {
-			elevator.moveToPosition(0);
+			elevator.moveToPosition(Globals.cargoPositions[0]);
 		} else if (Controls.buttonBoard.getVertiButton2Pressed()) {
-			elevator.moveToPosition(1);
+			elevator.moveToPosition(Globals.cargoPositions[1]);
 		} else if (Controls.buttonBoard.getVertiButton3Pressed()) {
-			elevator.moveToPosition(2);
+			elevator.moveToPosition(Globals.cargoPositions[2]);
 		} else if (Controls.buttonBoard.getVertiButton4Pressed()) {
-			elevator.moveToPosition(3);
+			elevator.moveToPosition(Globals.cargoPositions[3]);
+		} else if (Controls.buttonBoard.getHorizButton1Pressed()) {
+			elevator.moveToPosition(Globals.hatchPositions[0]);
+		} else if (Controls.buttonBoard.getHorizButton2Pressed()) {
+			elevator.moveToPosition(Globals.hatchPositions[1]);
+		} else if (Controls.buttonBoard.getHorizButton3Pressed()) {
+			elevator.moveToPosition(Globals.hatchPositions[2]);
+		} else if (Controls.buttonBoard.getHorizButton4Pressed()) {
+			// switch to endgame mode
 		}
 		
 	}

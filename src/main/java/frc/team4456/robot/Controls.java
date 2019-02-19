@@ -48,16 +48,16 @@ public class Controls {
 		//button pad buttons
 		/*
 		JoystickButton button1 = new JoystickButton(buttonBoard, 1);
-		button1.whenPressed(new setElevatorPosition(Globals.elevatorPositions[0]));
+		button1.whenPressed(new setElevatorPosition(Globals.cargoPositions[0]));
 		
 		JoystickButton button2 = new JoystickButton(buttonBoard, 2);
-		button2.whenPressed(new setElevatorPosition(Globals.elevatorPositions[1]));
+		button2.whenPressed(new setElevatorPosition(Globals.cargoPositions[1]));
 		
 		JoystickButton button3 = new JoystickButton(buttonBoard, 3);
-		button3.whenPressed(new setElevatorPosition(Globals.elevatorPositions[2]));
+		button3.whenPressed(new setElevatorPosition(Globals.cargoPositions[2]));
 		
 		JoystickButton button4 = new JoystickButton(buttonBoard, 4);
-		button4.whenPressed(new setElevatorPosition(Globals.elevatorPositions[3]));
+		button4.whenPressed(new setElevatorPosition(Globals.cargoPositions[3]));
 		
 		JoystickButton button5 = new JoystickButton(buttonBoard, 5);
 		//button5.whenPressed();

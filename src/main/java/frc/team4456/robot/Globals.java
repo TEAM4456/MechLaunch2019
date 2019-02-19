@@ -17,17 +17,18 @@ public class Globals {
 	public static double elevatorD = 0.0;
 	public static double elevatorF = 0.0;
 	public static double elevatorRampRate = 0.0;
-	public static double elevatorManualStepSize = 300.0;
-	public static double elevatorLowerLimit = 0.0;
-	public static double elevatorUpperLimit = 9730.0;
+	public static double elevatorManualStepSize = 150.0;
+	public static double elevatorLowerLimit = 0; // currently unused
+	public static double elevatorUpperLimit = 7600; // currently unused
 	
-	public static double[] elevatorPositions = {0, 2200, 5100, 7600};
+	public static int[] cargoPositions = {300, 2300, 5100, 7600};
+	public static int[] hatchPositions = {1500, 4300, 7050};
 	
-	public static double climberP = 0.6;
-	public static double climberI = 0.0;
-	public static double climberD = 0.0;
-	public static double climberF = 0.0;
-	public static double climberRampRate = 0.2;
+	public static double climberP = 0.6; // currently unused
+	public static double climberI = 0.0; // currently unused
+	public static double climberD = 0.0; // currently unused
+	public static double climberF = 0.0; // currently unused
+	public static double climberRampRate = 0.2; // currently unused
 	
 	public static double crawlRampRate = 0.1;
 	

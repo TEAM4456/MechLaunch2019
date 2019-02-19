@@ -13,7 +13,7 @@ public class Elevator extends Subsystem {
 	protected void initDefaultCommand() { }
 	
 	public Elevator() {
-		liftTalon.configOpenloopRamp(Globals.elevatorRampRate);
+		liftTalon.configClosedloopRamp(Globals.elevatorRampRate);
 		liftTalon.config_kP(0, Globals.elevatorP, 10);
 		liftTalon.config_kI(0, Globals.elevatorI, 10);
 		liftTalon.config_kD(0, Globals.elevatorD, 10);
@@ -42,7 +42,7 @@ public class Elevator extends Subsystem {
 	}
 	
 	public void moveToPosition(int position) {
-		liftTalon.set(ControlMode.Position, Globals.elevatorPositions[position]);
+		liftTalon.set(ControlMode.Position, position);
 	}
 	
 }
