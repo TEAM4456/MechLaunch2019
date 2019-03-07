@@ -4,6 +4,19 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class ButtonBoard {
 	
+	private final int HORIZ_BUTTON_1       = 1;
+	private final int HORIZ_BUTTON_2       = 2;
+	private final int HORIZ_BUTTON_3       = 3;
+	private final int HORIZ_BUTTON_4       = 4;
+	private final int RIGHT_JOYSTICK_UP    = 5;
+	private final int RIGHT_JOYSTICK_RIGHT = 6;
+	private final int RIGHT_JOYSTICK_DOWN  = 7;
+	private final int RIGHT_JOYSTICK_LEFT  = 8;
+	private final int VERTI_BUTTON_1       = 9;
+	private final int VERTI_BUTTON_2       = 10;
+	private final int VERTI_BUTTON_3       = 11;
+	private final int VERTI_BUTTON_4       = 12;
+	
 	private final Joystick buttonBoard;
 	
 	public ButtonBoard(int joystickID) {
@@ -11,10 +24,10 @@ public class ButtonBoard {
 	}
 	
 	public boolean getLeftJoystickUp() {
-		return buttonBoard.getRawAxis(1) == -1.0;
+		return buttonBoard.getRawAxis(1) == 1.0;
 	}
 	public boolean getLeftJoystickDown() {
-		return buttonBoard.getRawAxis(1) == 1.0;
+		return buttonBoard.getRawAxis(1) == -1.0;
 	}
 	public boolean getLeftJoystickLeft() {
 		return buttonBoard.getRawAxis(0) == -1.0;
@@ -24,66 +37,66 @@ public class ButtonBoard {
 	}
 	
 	public boolean getRightJoystickUp() {
-		return false; // TODO: check for real joystick move on real board
+		return buttonBoard.getRawButton(RIGHT_JOYSTICK_UP);
 	}
 	public boolean getRightJoystickDown() {
-		return false; // TODO: check for real joystick move on real board
+		return buttonBoard.getRawButton(RIGHT_JOYSTICK_DOWN);
 	}
 	public boolean getRightJoystickLeft() {
-		return false; // TODO: check for real joystick move on real board
+		return buttonBoard.getRawButton(RIGHT_JOYSTICK_LEFT);
 	}
 	public boolean getRightJoystickRight() {
-		return false; // TODO: check for real joystick move on real board
+		return buttonBoard.getRawButton(RIGHT_JOYSTICK_RIGHT);
 	}
 	
 	public boolean getHorizButton1Held() {
-		return buttonBoard.getRawButton(5); // TODO: check for button on real button board
+		return buttonBoard.getRawButton(HORIZ_BUTTON_1);
 	}
 	public boolean getHorizButton1Pressed() {
-		return buttonBoard.getRawButtonPressed(5); // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(HORIZ_BUTTON_1);
 	}
 	public boolean getHorizButton2Held() {
-		return buttonBoard.getRawButton(6); // TODO: check for button on real button board
+		return buttonBoard.getRawButton(HORIZ_BUTTON_2);
 	}
 	public boolean getHorizButton2Pressed() {
-		return buttonBoard.getRawButtonPressed(6); // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(HORIZ_BUTTON_2);
 	}
 	public boolean getHorizButton3Held() {
-		return buttonBoard.getRawButton(7); // TODO: check for button on real button board
+		return buttonBoard.getRawButton(HORIZ_BUTTON_3);
 	}
 	public boolean getHorizButton3Pressed() {
-		return buttonBoard.getRawButtonPressed(7); // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(HORIZ_BUTTON_3);
 	}
 	public boolean getHorizButton4Held() {
-		return buttonBoard.getRawButton(8); // TODO: check for button on real button board
+		return buttonBoard.getRawButton(HORIZ_BUTTON_4);
 	}
 	public boolean getHorizButton4Pressed() {
-		return buttonBoard.getRawButtonPressed(8); // TODO: check for button on real button board
+		return buttonBoard.getRawButtonPressed(HORIZ_BUTTON_4);
 	}
 	
 	public boolean getVertiButton1Held() {
-		return buttonBoard.getRawButton(1); // TODO: change to actual button on real board
+		return buttonBoard.getRawButton(VERTI_BUTTON_1);
 	}
 	public boolean getVertiButton1Pressed() {
-		return buttonBoard.getRawButtonPressed(1);  // TODO: change to actual button on real board
+		return buttonBoard.getRawButtonPressed(VERTI_BUTTON_1);
 	}
 	public boolean getVertiButton2Held() {
-		return buttonBoard.getRawButton(2); // TODO: change to actual button on real board
+		return buttonBoard.getRawButton(VERTI_BUTTON_2);
 	}
 	public boolean getVertiButton2Pressed() {
-		return buttonBoard.getRawButtonPressed(2);  // TODO: change to actual button on real board
+		return buttonBoard.getRawButtonPressed(VERTI_BUTTON_2);
 	}
 	public boolean getVertiButton3Held() {
-		return buttonBoard.getRawButton(3); // TODO: change to actual button on real board
+		return buttonBoard.getRawButton(VERTI_BUTTON_3);
 	}
 	public boolean getVertiButton3Pressed() {
-		return buttonBoard.getRawButtonPressed(3);  // TODO: change to actual button on real board
+		return buttonBoard.getRawButtonPressed(VERTI_BUTTON_3);
 	}
 	public boolean getVertiButton4Held() {
-		return buttonBoard.getRawButton(4); // TODO: change to actual button on real board
+		return buttonBoard.getRawButton(VERTI_BUTTON_4);
 	}
 	public boolean getVertiButton4Pressed() {
-		return buttonBoard.getRawButtonPressed(4);  // TODO: change to actual button on real board
+		return buttonBoard.getRawButtonPressed(VERTI_BUTTON_4);
 	}
 	
 }

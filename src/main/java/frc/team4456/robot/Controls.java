@@ -3,16 +3,25 @@ package frc.team4456.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.team4456.robot.commands.*;
+import frc.team4456.robot.subsystems.*;
 
 public class Controls {
 	
-	public static Joystick joystick;
-	public static ButtonBoard buttonBoard;
+	private static Joystick joystick;
+	private static ButtonBoard buttonBoard;
+	
+	private boolean climbControls;
+	
+	private final Elevator elevator = Robot.elevator;
+	private final Climb climb = Robot.climb;
+	private final Crawl crawl = Robot.crawl;
 	
 	public Controls() {
 		
 		joystick = new Joystick(0);
 		buttonBoard = new ButtonBoard(1);
+		
+		climbControls = false;
 		
 		//xbox controller buttons
 		JoystickButton aButton = new JoystickButton(joystick, 1);
@@ -45,26 +54,70 @@ public class Controls {
 		JoystickButton rightStick = new JoystickButton(joystick, 10);
 		rightStick.whenPressed(new toggleLock());
 		
-		//button pad buttons
-		/*
-		JoystickButton button1 = new JoystickButton(buttonBoard, 1);
-		button1.whenPressed(new setElevatorPosition(Globals.cargoPositions[0]));
+	}
+	
+	public void doButtonBoardControls() {
 		
-		JoystickButton button2 = new JoystickButton(buttonBoard, 2);
-		button2.whenPressed(new setElevatorPosition(Globals.cargoPositions[1]));
+		// button board controls (commands don't behave well for some reason)
+		// yes, it's ugly, but it's reliable
+		if (!climbControls) {
+			if (buttonBoard.getLeftJoystickUp()) {
+				elevator.raiseElevatorManual();
+			} else if (buttonBoard.getLeftJoystickDown()) {
+				elevator.lowerElevatorManual();
+			}
+			if (buttonBoard.getVertiButton1Pressed()) {
+				elevator.moveToPosition(Globals.cargoPositions[0]);
+			} else if (buttonBoard.getVertiButton2Pressed()) {
+				elevator.moveToPosition(Globals.cargoPositions[1]);
+			} else if (buttonBoard.getVertiButton3Pressed()) {
+				elevator.moveToPosition(Globals.cargoPositions[2]);
+			} else if (buttonBoard.getVertiButton4Pressed()) {
+				elevator.moveToPosition(Globals.cargoPositions[3]);
+			} else if (buttonBoard.getHorizButton4Pressed()) {
+				elevator.moveToPosition(Globals.hatchPositions[0]);
+			} else if (buttonBoard.getHorizButton3Pressed()) {
+				elevator.moveToPosition(Globals.hatchPositions[1]);
+			} else if (buttonBoard.getHorizButton2Pressed()) {
+				elevator.moveToPosition(Globals.hatchPositions[2]);
+			}
+			if (buttonBoard.getHorizButton1Pressed()) {
+				climbControls = true;
+			}
+		} else {
+			if (buttonBoard.getLeftJoystickUp()) {
+				crawl.crawlForward();
+			} else if (buttonBoard.getLeftJoystickDown()) {
+				crawl.crawlBack();
+			} else {
+				crawl.stopCrawl();
+			}
+			
+			if (buttonBoard.getRightJoystickUp()) {
+				climb.extendLeg();
+			} else if (buttonBoard.getRightJoystickDown()) {
+				climb.retractLeg();
+			} else {
+				climb.stopLeg();
+			}
+			/*
+			if (buttonBoard.getVertiButton4Pressed()) {
+				pneumatics.toggleLock();
+			}
+			*/
+			if (buttonBoard.getHorizButton1Pressed()) {
+				climbControls = false;
+			}
+		}
 		
-		JoystickButton button3 = new JoystickButton(buttonBoard, 3);
-		button3.whenPressed(new setElevatorPosition(Globals.cargoPositions[2]));
-		
-		JoystickButton button4 = new JoystickButton(buttonBoard, 4);
-		button4.whenPressed(new setElevatorPosition(Globals.cargoPositions[3]));
-		
-		JoystickButton button5 = new JoystickButton(buttonBoard, 5);
-		//button5.whenPressed();
-		
-		JoystickButton button6 = new JoystickButton(buttonBoard, 6);
-		//button6.whenPressed();
-		*/
+	}
+	
+	public Joystick getJoystickInstance() {
+		return joystick;
+	}
+	
+	public boolean isClimbControls() {
+		return climbControls;
 	}
 	
 }

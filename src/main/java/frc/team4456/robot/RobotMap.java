@@ -47,6 +47,7 @@ public class RobotMap {
 		//liftTalon.configOpenloopRamp(0.3);
 		
 		climbTalon = new WPI_TalonSRX(5);
+		climbTalon.setInverted(true);
 		
 		crawlMasterTalon = new WPI_TalonSRX(3);
 		crawlMasterTalon.setInverted(true);

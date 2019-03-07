@@ -13,7 +13,6 @@ public class Robot extends TimedRobot {
 	public static Pneumatics pneumatics;
 	public static Controls controls;
 	
-	
 	@Override 
 	public void robotInit() {
 		
@@ -23,19 +22,22 @@ public class Robot extends TimedRobot {
 		
 		RobotMap.init();
 		
+		// things must be constructed in the order of
+		// subsystems used in Controls -> Controls -> Drive
 		climb = new Climb();
-		drive = new Drive();
 		elevator = new Elevator();
 		pneumatics = new Pneumatics();
 		crawl = new Crawl();
 		
 		controls = new Controls();
 		
+		drive = new Drive(controls.getJoystickInstance());
+		
 	}
 	
 	@Override
 	public void robotPeriodic() {
-		System.out.println("elevator encoder: " + RobotMap.liftTalon.getSelectedSensorPosition(0));
+		//System.out.println("elevator encoder: " + RobotMap.liftTalon.getSelectedSensorPosition(0));
 		/*
 		System.out.println("button 1: " + Controls.buttonBoard.getVertiButton1Held());
 		System.out.println("button 2: " + Controls.buttonBoard.getVertiButton2Held());
@@ -65,31 +67,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		drive.betterArcadeDrive(controls.joystick);
+		drive.betterArcadeDrive();
 		
-		// elevator controls (commands don't behave well for some reason)
-		if (Controls.buttonBoard.getLeftJoystickUp()) {
-			elevator.raiseElevatorManual();
-		} else if (Controls.buttonBoard.getLeftJoystickDown()) {
-			elevator.lowerElevatorManual();
-		} else if (Controls.buttonBoard.getVertiButton1Pressed()) {
-			elevator.moveToPosition(Globals.cargoPositions[0]);
-		} else if (Controls.buttonBoard.getVertiButton2Pressed()) {
-			elevator.moveToPosition(Globals.cargoPositions[1]);
-		} else if (Controls.buttonBoard.getVertiButton3Pressed()) {
-			elevator.moveToPosition(Globals.cargoPositions[2]);
-		} else if (Controls.buttonBoard.getVertiButton4Pressed()) {
-			elevator.moveToPosition(Globals.cargoPositions[3]);
-		} else if (Controls.buttonBoard.getHorizButton1Pressed()) {
-			elevator.moveToPosition(Globals.hatchPositions[0]);
-		} else if (Controls.buttonBoard.getHorizButton2Pressed()) {
-			elevator.moveToPosition(Globals.hatchPositions[1]);
-		} else if (Controls.buttonBoard.getHorizButton3Pressed()) {
-			elevator.moveToPosition(Globals.hatchPositions[2]);
-		} else if (Controls.buttonBoard.getHorizButton4Pressed()) {
-			// switch to endgame mode
-		}
-		
+		controls.doButtonBoardControls();
 	}
 	
 	@Override 
