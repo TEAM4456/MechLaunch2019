@@ -17,11 +17,11 @@ public class Crawl extends Subsystem {
 	protected void initDefaultCommand() { }
 	
 	public void crawlForward() {
-		crawlTalon.set(ControlMode.PercentOutput, .5);
+		crawlTalon.set(ControlMode.PercentOutput, .25);
 	}
 	
 	public void crawlBack() {
-		crawlTalon.set(ControlMode.PercentOutput, -.5);
+		crawlTalon.set(ControlMode.PercentOutput, -.25);
 	}
 	
 	public void stopCrawl() {

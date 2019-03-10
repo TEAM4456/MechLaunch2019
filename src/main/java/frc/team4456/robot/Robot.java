@@ -1,5 +1,6 @@
 package frc.team4456.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.TimedRobot;
 import frc.team4456.robot.subsystems.*;
@@ -53,7 +54,9 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() { }
 	
 	@Override
-	public void teleopInit() { }
+	public void teleopInit() {
+		elevator.moveToPosition(Globals.cargoPositions[0]);
+	}
 	
 	@Override
 	public void testInit() { }
@@ -62,7 +65,9 @@ public class Robot extends TimedRobot {
 	public void disabledPeriodic() { }
 	
 	@Override
-	public void autonomousPeriodic() { }
+	public void autonomousPeriodic() {
+		teleopPeriodic(); // it works
+	}
 	
 	@Override
 	public void teleopPeriodic() {
