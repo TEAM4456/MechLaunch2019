@@ -28,6 +28,7 @@ public class RobotMap {
 		
 		leftDriveMaster = new WPI_TalonSRX(2);
 		leftDriveMaster.setInverted(false);
+		leftDriveMaster.setSensorPhase(true);
 		leftDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
 		leftDriveFollower = new WPI_TalonSRX(1);
 		leftDriveFollower.setInverted(true);
@@ -35,6 +36,7 @@ public class RobotMap {
 		
 		rightDriveMaster = new WPI_TalonSRX(7);
 		rightDriveMaster.setInverted(true);
+		rightDriveMaster.setSensorPhase(true);
 		rightDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
 		rightDriveFollower = new WPI_TalonSRX(8);
 		rightDriveFollower.set(ControlMode.Follower, 7);

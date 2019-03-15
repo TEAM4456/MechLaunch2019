@@ -19,7 +19,7 @@ public class Robot extends TimedRobot {
 		
 		System.out.println("robotInit() called");
 		
-		//CameraServer.getInstance().startAutomaticCapture();
+		CameraServer.getInstance().startAutomaticCapture();
 		
 		RobotMap.init();
 		
@@ -45,6 +45,8 @@ public class Robot extends TimedRobot {
 		System.out.println("button 3: " + Controls.buttonBoard.getVertiButton3Held());
 		System.out.println("button 4: " + Controls.buttonBoard.getVertiButton4Held());
 		*/
+		//System.out.println("Left drive velocity: " + RobotMap.leftDriveMaster.getSelectedSensorVelocity(0));
+		//System.out.println("Right drive velocity: " + RobotMap.rightDriveMaster.getSelectedSensorVelocity(0));
 	}
 	
 	@Override 

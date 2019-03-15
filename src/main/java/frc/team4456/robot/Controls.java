@@ -74,11 +74,11 @@ public class Controls {
 				elevator.moveToPosition(Globals.cargoPositions[2]);
 			} else if (buttonBoard.getVertiButton4Pressed()) {
 				elevator.moveToPosition(Globals.cargoPositions[3]);
-			} else if (buttonBoard.getHorizButton4Pressed()) {
+			} else if (buttonBoard.getHorizButton2Pressed()) {
 				elevator.moveToPosition(Globals.hatchPositions[0]);
 			} else if (buttonBoard.getHorizButton3Pressed()) {
 				elevator.moveToPosition(Globals.hatchPositions[1]);
-			} else if (buttonBoard.getHorizButton2Pressed()) {
+			} else if (buttonBoard.getHorizButton4Pressed()) {
 				elevator.moveToPosition(Globals.hatchPositions[2]);
 			}
 			if (buttonBoard.getHorizButton1Pressed()) {
